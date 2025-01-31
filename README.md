@@ -7,6 +7,7 @@ Simple application that validates and processes customer data and calls ShowAds 
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Running Tests](#running-tests)
+- [Documentation](#documentation)
 
 ## Requirements
 - Docker
@@ -23,3 +24,10 @@ Simple application that validates and processes customer data and calls ShowAds 
 ## Running tests
 
 After building the image you can simply run `docker run --rm showads-connector:latest pytest`
+
+## Documentation
+
+Simple architecture using 3 main modules:
+- `showads.py`: Handles operations with the API. Token is stored in json file with timestamp for checking the expiration of the token.
+- `csv_loader`: Handles CSV reading, checking the structure of the file. Returns list of validated customer records in CustomerData structure.
+- `models`: Defines data structure for the project (currently just one). Uses Pydantic BaseModel for simple validation and consistency.
