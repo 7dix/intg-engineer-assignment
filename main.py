@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 
 def main():
     # Load customer data from CSV file
-    csv_loader = CSVLoader("test_data/data.csv")
+    csv_loader = CSVLoader("data/data.csv")
     customers = csv_loader.load()
     
     # Send customer data to ShowAds
