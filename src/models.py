@@ -2,9 +2,6 @@ from pydantic import BaseModel, field_validator
 import re
 import uuid
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 """
 Model for the customer data with validation.
@@ -22,7 +19,6 @@ class CustomerData(BaseModel):
     def validate_name(cls, value):
         if not re.match(r'^[a-zA-Z\s]+$', value):
             raise ValueError('Name must only contain letters and spaces.')
-        
         return value
     
     @field_validator('Age')
